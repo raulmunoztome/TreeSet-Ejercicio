@@ -82,20 +82,19 @@ public abstract class Vehicles implements Comparable<Vehicles> {
 	}
 
 	public int compareTo(Vehicles p) {
-
-	      // Primero comparar por matrícula
-        int comparacionMatricula = this.matricula.compareTo(p.getMatricula());
-        if (comparacionMatricula != 0) {
-            return comparacionMatricula;
-        }
-        
-        // Si matrícula es igual, comparar por marca
-        int comparacionMarca = this.marca.compareTo(p.getMarca());
-        if (comparacionMarca != 0) {
-            return comparacionMarca;
-        }
-        
-        // Si matrícula y marca son iguales, comparar por modelo
-        return this.model.compareTo(p.getModel());
-	   }
+	    // Primero comparar por MARCA (criterio principal)
+	    int comparacionMarca = this.marca.compareTo(p.getMarca());
+	    if (comparacionMarca != 0) {
+	        return comparacionMarca;
+	    }
+	    
+	    // Si la marca es igual, comparar por MODELO
+	    int comparacionModelo = this.model.compareTo(p.getModel());
+	    if (comparacionModelo != 0) {
+	        return comparacionModelo;
+	    }
+	    
+	    // Si marca y modelo son iguales, comparar por MATRÍCULA (para diferenciar)
+	    return this.matricula.compareTo(p.getMatricula());
+	}
 }

@@ -7,7 +7,7 @@ public class Principal{
 		Cotxes c1 = new Cotxes("AR36346ET","Tesla","R1","Verde",0,5,true);
 		Cotxes c2 = new Cotxes("EP54782RT","Peugeot","A7","Blanco",2000,5,false);
 		Cotxes c3 = new Cotxes("TT54653KK","Nissan","Mayestic","Blanco",1000,5,false);
-		Motos m1 = new Motos("AP43256TG","Toyota","BMC","Negro",4200,90,"F");
+		Motos m1 = new Motos("AP43256TG","Aurum","BMC","Negro",4200,90,"F");
 		Motos m2 = new Motos("TY354634KL","Peugeot","Ronda","Azul",4500,125,"S");
 		
 		try {
