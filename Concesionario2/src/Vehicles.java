@@ -16,6 +16,30 @@ public abstract class Vehicles implements Comparable<Vehicles> {
 		this.km = km;
 	}
 	
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
 	public String getMatricula() {
 		return matricula;
 	}
@@ -27,7 +51,7 @@ public abstract class Vehicles implements Comparable<Vehicles> {
 	@Override
 	public int hashCode() {
 
-		return Objects.hash(marca,model);
+		return Objects.hash(marca,model,matricula);
 
 	}
 	@Override
@@ -41,7 +65,7 @@ public abstract class Vehicles implements Comparable<Vehicles> {
 
 		Vehicles other = (Vehicles) obj;
 
-		return Objects.equals(marca, other.marca) && Objects.equals(model, other.model);
+		return Objects.equals(matricula, other.matricula) && Objects.equals(marca, other.marca) && Objects.equals(model, other.model);
 
 	}
 	@Override
@@ -59,7 +83,19 @@ public abstract class Vehicles implements Comparable<Vehicles> {
 
 	public int compareTo(Vehicles p) {
 
-	       return this.matricula.compareTo(p.getMatricula());
-
+	      // Primero comparar por matrícula
+        int comparacionMatricula = this.matricula.compareTo(p.getMatricula());
+        if (comparacionMatricula != 0) {
+            return comparacionMatricula;
+        }
+        
+        // Si matrícula es igual, comparar por marca
+        int comparacionMarca = this.marca.compareTo(p.getMarca());
+        if (comparacionMarca != 0) {
+            return comparacionMarca;
+        }
+        
+        // Si matrícula y marca son iguales, comparar por modelo
+        return this.model.compareTo(p.getModel());
 	   }
 }
