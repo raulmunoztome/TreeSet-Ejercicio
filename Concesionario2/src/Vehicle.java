@@ -93,7 +93,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 		        return comparacionClase;
 		    }
 		
-	    // Primero comparar por MARCA (criterio principal)
+	    // Primero comparar por MARCA
 	    int comparacionMarca = this.marca.compareTo(p.getMarca());
 	    if (comparacionMarca != 0) {
 	        return comparacionMarca;
