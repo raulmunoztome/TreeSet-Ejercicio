@@ -1,13 +1,13 @@
 import java.util.Objects;
 
-public abstract class Vehicles implements Comparable<Vehicles> {
+public abstract class Vehicle implements Comparable<Vehicle> {
 	protected String matricula;
 	protected String marca;
 	protected String model;
 	protected String color;
 	protected int km;
 	
-	public Vehicles(String matricula, String marca, String model, String color, int km) {
+	public Vehicle(String matricula, String marca, String model, String color, int km) {
 		
 		this.matricula = matricula;
 		this.marca = marca;
@@ -15,7 +15,12 @@ public abstract class Vehicles implements Comparable<Vehicles> {
 		this.color = color;
 		this.km = km;
 	}
-	
+	public boolean isEsAutomatic() {
+		return false;
+	}
+	public int getCilindrada() {
+		return 0;
+	}
 	public String getMarca() {
 		return marca;
 	}
@@ -51,7 +56,7 @@ public abstract class Vehicles implements Comparable<Vehicles> {
 	@Override
 	public int hashCode() {
 
-		return Objects.hash(marca,model,matricula);
+		return Objects.hash(this.getClass().getSimpleName(),model,matricula);
 
 	}
 	@Override
@@ -63,9 +68,9 @@ public abstract class Vehicles implements Comparable<Vehicles> {
 
 		if (getClass() != obj.getClass()) return false;
 
-		Vehicles other = (Vehicles) obj;
+		Vehicle other = (Vehicle) obj;
 
-		return Objects.equals(matricula, other.matricula) && Objects.equals(marca, other.marca) && Objects.equals(model, other.model);
+		return  Objects.equals(getClass().getSimpleName(), other.getClass().getSimpleName()) && Objects.equals(matricula, other.matricula) && Objects.equals(marca, other.marca) && Objects.equals(model, other.model);
 
 	}
 	@Override
@@ -81,7 +86,13 @@ public abstract class Vehicles implements Comparable<Vehicles> {
 		this.km = km;
 	}
 
-	public int compareTo(Vehicles p) {
+	public int compareTo(Vehicle p) {
+		//Primero comprar las clases
+		int comparacionClase = this.getClass().getSimpleName().compareTo(p.getClass().getSimpleName());
+		 if (comparacionClase != 0) {
+		        return comparacionClase;
+		    }
+		
 	    // Primero comparar por MARCA (criterio principal)
 	    int comparacionMarca = this.marca.compareTo(p.getMarca());
 	    if (comparacionMarca != 0) {
