@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeSet;
 
 public class Principal{
@@ -11,7 +13,9 @@ public class Principal{
 		Moto m2 = new Moto("TY354634KL","Peugeot","Ronda","Azul",4500,125,"S");
 		
 		try {
-			Concesionario con1 = new Concesionario("Calle Riera Baste 41, 08830",c1);
+			List<Vehicle> lista = new ArrayList<Vehicle>();
+			lista.add(c1);
+			Concesionario con1 = new Concesionario("Calle Riera Baste 41, 08830",lista);
 			con1.addVehiculo(c2);
 			con1.addVehiculo(c3);
 			con1.addVehiculo(m1);

@@ -1,35 +1,44 @@
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.TreeSet;
+import java.util.List;
+
 
 public class Concesionario implements ConcessionariOperacions{
 
 	private String direccion;
-	private TreeSet<Vehicle> elementos = new TreeSet<>();
+	private TreeSet<Vehicle> elementos;
 	private static final int MAX_VEHICULOS = 10;
-	private static int cantidad = 0;
+	private int cantidad = 0;
 	 
-	public Concesionario(String direccion, Vehicle veh) throws Exception {
+	public Concesionario(String direccion,List<Vehicle> listaVehiculos) throws Exception {
 		this.direccion = direccion;
 		if(cantidad == MAX_VEHICULOS) throw new Exception("Máximo de vehiculos alcanzado");
 		++cantidad;
-		this.elementos.add(veh);
+		this.elementos = new TreeSet<>(listaVehiculos);
 
 	}
 	
 	public boolean quitarElemento(String mat) {
+		
 		for(Vehicle e : elementos) {
+			
 			if(e.getMatricula().equals(mat)) {
+				
 				elementos.remove(e);
 				return true;
+				
 			}
 		}
 		return false;
 	}
 	
 	public boolean quitarElemento(Vehicle V) {
+		
 		for(Vehicle e2 : elementos) {
+			
 			if(e2.equals(V)) {
+				
 				elementos.remove(V);
 				return true;
 			}
@@ -53,13 +62,16 @@ public class Concesionario implements ConcessionariOperacions{
 	public int mediaKm() {
 		int media = 0;
 		Iterator<Vehicle> revisar = elementos.iterator();
+		
 		while(revisar.hasNext()) {
 			media += revisar.next().getKm();
 		}
+		
 		return media/elementos.size();
 	}
 	public double descuento(Vehicle v) {
-		if(v.getClass().getSimpleName().equals("Cotxes")) {
+		
+		if(v instanceof Cotxe) {
 			if(v.isEsAutomatic()) return 0;
 			int dato = v.getKm();
 			if((dato/10000) > 10 )return 10;
