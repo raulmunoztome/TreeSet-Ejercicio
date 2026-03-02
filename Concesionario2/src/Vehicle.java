@@ -32,9 +32,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 	public boolean isEsAutomatic() {
 		return false;
 	}
-	public int getCilindrada() {
-		return 0;
-	}
+	
 	public String getMarca() {
 		return marca;
 	}

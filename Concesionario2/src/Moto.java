@@ -27,7 +27,6 @@ public class Moto extends Vehicle{
 		if(!encontrado) throw new Exception("tipo de moto inválido");
 	}
 	
-	@Override
 	public int getCilindrada() {
 		
 		return cilindrada;
