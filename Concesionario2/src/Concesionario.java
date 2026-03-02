@@ -9,13 +9,17 @@ public class Concesionario implements ConcessionariOperacions{
 	private String direccion;
 	private TreeSet<Vehicle> elementos;
 	private static final int MAX_VEHICULOS = 10;
-	private int cantidad = 0;
+	private int cantidad;
 	 
-	public Concesionario(String direccion,List<Vehicle> listaVehiculos) throws Exception {
+	public Concesionario(String direccion, List<Vehicle> listaVehiculos) throws Exception {
+		
 		this.direccion = direccion;
+		
 		if(listaVehiculos.isEmpty()) throw new Exception("lista de vehiculos sin datos");
+		else if(listaVehiculos.size() > 10) throw new Exception("Lista demasiado grande, número máx de vehiculos: "+MAX_VEHICULOS);
+		
 		this.elementos = new TreeSet<>(listaVehiculos);
-		++cantidad;
+		cantidad = elementos.size();
 
 	}
 	
@@ -47,6 +51,7 @@ public class Concesionario implements ConcessionariOperacions{
 	}
 	
 	public int getCantidad() {
+		
 		return this.cantidad;
 	}
 	
