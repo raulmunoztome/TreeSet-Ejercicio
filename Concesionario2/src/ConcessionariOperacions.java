@@ -10,8 +10,6 @@ public interface ConcessionariOperacions {
 	public boolean addVehiculo(Vehicle vc);
 	
 	public int mediaKm();
-	
-	public double descuento(Vehicle v);
-	
+
 }
 

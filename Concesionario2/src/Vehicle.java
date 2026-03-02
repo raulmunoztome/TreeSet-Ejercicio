@@ -7,14 +7,28 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 	protected String color;
 	protected int km;
 	
-	public Vehicle(String matricula, String marca, String model, String color, int km) {
+	public Vehicle(String matricula, String marca, String model, String color, int km) throws Exception {
 		
 		this.matricula = matricula;
 		this.marca = marca;
 		this.model = model;
 		this.color = color;
+		if(km < 0) throw new Exception("Error en el km");
 		this.km = km;
 	}
+	
+	public double descuentoReglaCoche() {
+
+	    if (this.isEsAutomatic()) return 0;
+
+	    int bloques = this.getKm() / 10000;
+	    double porcentaje = bloques * 1;
+
+	    if (porcentaje > 10) return 10;
+
+	    return porcentaje;
+	}
+	
 	public boolean isEsAutomatic() {
 		return false;
 	}
@@ -56,7 +70,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 	@Override
 	public int hashCode() {
 
-		return Objects.hash(this.getClass().getSimpleName(),model,matricula);
+		return Objects.hash(this.getClass().getSimpleName(),marca,model,matricula);
 
 	}
 	@Override
@@ -73,11 +87,13 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 		return  Objects.equals(getClass().getSimpleName(), other.getClass().getSimpleName()) && Objects.equals(matricula, other.matricula) && Objects.equals(marca, other.marca) && Objects.equals(model, other.model);
 
 	}
+
+	
 	@Override
 	public String toString() {
-		return " Matricula: "+this.matricula+" Marca: "+this.marca+" KM: "+km;
+		return "Vehicle [matricula=" + matricula + ", marca=" + marca + ", model=" + model + ", color=" + color
+				+ ", km=" + km + ", getClass()=" + getClass() + ", toString()=" + super.toString() + "]";
 	}
-	
 	public int getKm() {
 		return km;
 	}

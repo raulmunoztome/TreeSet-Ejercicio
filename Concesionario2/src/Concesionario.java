@@ -13,6 +13,7 @@ public class Concesionario implements ConcessionariOperacions{
 	 
 	public Concesionario(String direccion,List<Vehicle> listaVehiculos) throws Exception {
 		this.direccion = direccion;
+		if(listaVehiculos.isEmpty()) throw new Exception("lista de vehiculos sin datos");
 		this.elementos = new TreeSet<>(listaVehiculos);
 		++cantidad;
 
@@ -75,38 +76,9 @@ public class Concesionario implements ConcessionariOperacions{
 		
 		return media/elementos.size();
 	}
+
+
 	
-	public double descuento(Vehicle v) {
-		
-		if(v instanceof Cotxe) {
-			
-			if(v.isEsAutomatic()) return 0;
-			
-			int dato = v.getKm();
-			
-			if((dato/10000) > 10 )return 10;
-			
-			return dato/1000;
-		}
-		
-		else {
-			if(v.getCilindrada() > 125) {
-				
-				int dato = v.getKm();
-				
-				if((dato/10000) > 10 )return 10;
-				
-				return dato/1000;
-			}
-			
-			int motokm = v.getKm();
-			
-			if((motokm/5000)*2 > 20) return 20;
-			
-			return (v.getKm()/5000)*2;
-		}
-		
-	}
 
 	
 	
