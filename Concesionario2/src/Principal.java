@@ -38,8 +38,10 @@ public class Principal{
 			System.out.println("\n------DESPUES DE ELIMINAR------\n");
 			
 			for(Vehicle v : listado) {
-				if(v instanceof Cotxe) System.out.println("Coche -> "+v);
-				else System.out.println("Moto -> "+v);
+				
+				if(v instanceof Cotxe) System.out.println("Coche -> "+v+"Descuento: "+v.descuento());
+				else System.out.println("Moto -> "+v+" Descuento: "+v.descuento());
+				
 			}
 			
 			System.out.println("Media de Km: "+con1.mediaKm()+" km");
