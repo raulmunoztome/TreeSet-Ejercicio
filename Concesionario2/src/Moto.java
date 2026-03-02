@@ -7,12 +7,13 @@ public class Moto extends Vehicle{
 
 	private int cilindrada;
 	private tipoMoto tipus;
-	public enum tipoMoto {
+	private enum tipoMoto {
 	    URBANA, DEPORTIVA, SCOOTER, TRAIL, CUSTOM
 	}
 	
 	public Moto(String matricula, String marca, String model, String color, int km, int cilindrada, String tipus) throws Exception {	
 		super(matricula, marca, model, color, km);
+		
 		this.cilindrada = cilindrada;
 		
 		boolean encontrado = false;

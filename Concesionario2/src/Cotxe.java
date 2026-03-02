@@ -50,12 +50,8 @@ public class Cotxe extends Vehicle {
 
 	}
 	
-	public double descuento(int kilometros) {
-		if(this.esAutomatic) return 0;
-		
-		if((kilometros/10000) > 10 )return 10;
-		
-		return kilometros/1000;
+	public double descuento() {
+		return this.descuentoReglaCoche();
 	}
 	
 	@Override

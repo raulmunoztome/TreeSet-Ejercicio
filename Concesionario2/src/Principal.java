@@ -43,7 +43,7 @@ public class Principal{
 			}
 			
 			System.out.println("Media de Km: "+con1.mediaKm()+" km");
-			System.out.println(m2.descuento());
+			System.out.println(m2.descuento()+"--------"+c2.descuento());
 			
 		} catch (Exception e) {
 			

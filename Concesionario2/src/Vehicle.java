@@ -21,12 +21,12 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
 	    if (this.isEsAutomatic()) return 0;
 
-	    int bloques = this.getKm() / 10000;
-	    double porcentaje = bloques * 1;
+	    int des = this.getKm() / 10000;
 
-	    if (porcentaje > 10) return 10;
 
-	    return porcentaje;
+	    if (des > 10) return 10;
+
+	    return des;
 	}
 	
 	public boolean isEsAutomatic() {
