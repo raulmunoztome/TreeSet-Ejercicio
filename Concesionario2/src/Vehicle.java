@@ -1,7 +1,7 @@
 import java.util.Objects;
 
 public abstract class Vehicle implements Comparable<Vehicle> {
-	protected String matricula;
+	protected final String matricula;
 	protected String marca;
 	protected String model;
 	protected String color;
@@ -61,10 +61,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 		return matricula;
 	}
 
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
-	}
-
 	@Override
 	public int hashCode() {
 
@@ -82,7 +78,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
 		Vehicle other = (Vehicle) obj;
 
-		return  Objects.equals(getClass().getSimpleName(), other.getClass().getSimpleName()) && Objects.equals(matricula, other.matricula) && Objects.equals(marca, other.marca) && Objects.equals(model, other.model);
+		return  Objects.equals(matricula, other.matricula) && Objects.equals(marca, other.marca) && Objects.equals(model, other.model);
 
 	}
 
@@ -119,7 +115,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 	        return comparacionModelo;
 	    }
 	    
-	    // Si marca y modelo son iguales, comparar por MATRÍCULA (para diferenciar)
+	    // Si marca y modelo son iguales, comparar por MATRÍCULA 
 	    return this.matricula.compareTo(p.getMatricula());
 	}
 }
