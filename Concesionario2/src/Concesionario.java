@@ -16,7 +16,7 @@ public class Concesionario implements ConcessionariOperacions{
 		this.direccion = direccion;
 		
 		if(listaVehiculos.isEmpty()) throw new Exception("lista de vehiculos sin datos");
-		else if(listaVehiculos.size() > 10) throw new Exception("Lista demasiado grande, número máx de vehiculos: "+MAX_VEHICULOS);
+		else if(listaVehiculos.size() > MAX_VEHICULOS) throw new Exception("Lista demasiado grande, número máx de vehiculos: "+MAX_VEHICULOS);
 		
 		this.elementos = new TreeSet<>(listaVehiculos);
 		cantidad = elementos.size();
