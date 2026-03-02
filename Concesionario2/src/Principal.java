@@ -27,25 +27,28 @@ public class Principal{
 			TreeSet<Vehicle> listado = con1.getElementos();
 			
 			for(Vehicle v : listado) {
-				if(v instanceof Cotxe) System.out.println("Coche -> "+v);
-				else System.out.println("Moto -> "+v);
+				
+				if(v instanceof Cotxe) System.out.println("Coche -> "+v+"\nDescuento: "+v.descuento());
+				else System.out.println("Moto -> "+v+"\nDescuento: "+v.descuento());
+				
 			}
+			System.out.println("\nMedia de Km: "+con1.mediaKm()+" km\n");
 			
-			con1.quitarElemento("AR36346ET");
-			con1.quitarElemento(m2);
+			if(con1.quitarElemento("AR36346ET"))System.out.println("Vehiculo eliminado");;
+			if(con1.quitarElemento(m2))System.out.println("Vehiculo eliminado");
 			
 			
 			System.out.println("\n------DESPUES DE ELIMINAR------\n");
+			System.out.println("Actualmente hay "+con1.getCantidad() +" vehiculos en el concesionario\n");
 			
 			for(Vehicle v : listado) {
 				
-				if(v instanceof Cotxe) System.out.println("Coche -> "+v+"Descuento: "+v.descuento());
-				else System.out.println("Moto -> "+v+" Descuento: "+v.descuento());
+				if(v instanceof Cotxe) System.out.println("Coche -> "+v+"\nDescuento: "+v.descuento());
+				else System.out.println("Moto -> "+v+"\nDescuento: "+v.descuento());
 				
 			}
 			
-			System.out.println("Media de Km: "+con1.mediaKm()+" km");
-			System.out.println(m2.descuento()+"--------"+c2.descuento());
+			System.out.println("\nMedia de Km: "+con1.mediaKm()+" km");
 			
 		} catch (Exception e) {
 			

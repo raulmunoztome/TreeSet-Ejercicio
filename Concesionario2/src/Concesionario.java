@@ -30,6 +30,7 @@ public class Concesionario implements ConcessionariOperacions{
 			if(e.getMatricula().equals(mat)) {
 				
 				elementos.remove(e);
+				--cantidad;
 				return true;
 				
 			}
@@ -44,7 +45,9 @@ public class Concesionario implements ConcessionariOperacions{
 			if(e2.equals(V)) {
 				
 				elementos.remove(V);
+				--cantidad;
 				return true;
+				
 			}
 		}
 		return false;

@@ -50,7 +50,8 @@ public class Cotxe extends Vehicle {
 
 	}
 	
-	public double descuento() {
+	@Override
+	public int descuento() {
 		return this.descuentoReglaCoche();
 	}
 	

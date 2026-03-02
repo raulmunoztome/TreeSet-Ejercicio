@@ -77,7 +77,8 @@ public class Moto extends Vehicle{
 				+ ", model=" + model + ", color=" + color + ", km=" + km + "]";
 	}
 	
-	public double descuento() {
+	@Override
+	public int descuento() {
 		
 		if(cilindrada > 125) {
 			

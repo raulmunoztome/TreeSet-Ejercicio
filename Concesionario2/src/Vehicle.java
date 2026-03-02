@@ -17,7 +17,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 		this.km = km;
 	}
 	
-	public double descuentoReglaCoche() {
+	public int descuentoReglaCoche() {
 
 	    if (this.isEsAutomatic()) return 0;
 
@@ -118,4 +118,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 	    // Si marca y modelo son iguales, comparar por MATRÍCULA 
 	    return this.matricula.compareTo(p.getMatricula());
 	}
+
+	public abstract int descuento();
 }
