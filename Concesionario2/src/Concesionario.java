@@ -13,6 +13,7 @@ public class Concesionario implements ConcessionariOperacions{
 	 
 	public Concesionario(String direccion, List<Vehicle> listaVehiculos) throws Exception {
 		
+		if(direccion.isBlank())throw new Exception("no hay direccion");
 		this.direccion = direccion;
 		
 		if(listaVehiculos.isEmpty()) throw new Exception("lista de vehiculos sin datos");
@@ -27,7 +28,7 @@ public class Concesionario implements ConcessionariOperacions{
 		
 		for(Vehicle e : elementos) {
 			
-			if(e.getMatricula().equals(mat)) {
+			if(e.getMatricula().equalsIgnoreCase(mat)) {
 				
 				elementos.remove(e);
 				--cantidad;
@@ -83,6 +84,15 @@ public class Concesionario implements ConcessionariOperacions{
 		}
 		
 		return media/elementos.size();
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		
+		if(!direccion.isBlank())this.direccion = direccion;
 	}
 
 

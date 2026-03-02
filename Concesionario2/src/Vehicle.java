@@ -1,4 +1,5 @@
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public abstract class Vehicle implements Comparable<Vehicle> {
 	protected final String matricula;
@@ -8,7 +9,8 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 	protected int km;
 	
 	public Vehicle(String matricula, String marca, String model, String color, int km) throws Exception {
-		
+		//Patrón inventado a seguir: AA 12345 AA
+		if(!Pattern.matches("[A-Z]{2,3}[0-9]{5}[A-Z]{2,3}", matricula)) throw new Exception("Matricula no válida "+matricula);
 		this.matricula = matricula;
 		this.marca = marca;
 		this.model = model;
@@ -21,7 +23,7 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
 	    if (this.isEsAutomatic()) return 0;
 
-	    int des = this.getKm() / 10000;
+	    int des = this.getKm()/10000;
 
 
 	    if (des > 10) return 10;

@@ -14,11 +14,14 @@ public class Moto extends Vehicle{
 	public Moto(String matricula, String marca, String model, String color, int km, int cilindrada, String tipus) throws Exception {	
 		super(matricula, marca, model, color, km);
 		
+		if(cilindrada <= 0) throw new Exception("Cilindrada no válida");
 		this.cilindrada = cilindrada;
 		
 		boolean encontrado = false;
 		for(tipoMoto t : tipoMoto.values()) {
+			
 			if(t.name().equalsIgnoreCase(tipus)) {
+				
 				this.tipus = t;
 	            encontrado = true;
 	            break;
@@ -34,42 +37,27 @@ public class Moto extends Vehicle{
 	
 	public void setCilindrada(int cilindrada) {
 		
-		this.cilindrada = cilindrada;
+		if(cilindrada > 0)this.cilindrada = cilindrada;
 	}
 	
-	public tipoMoto getTipus() {
+	public String getTipus() {
 		
-		return tipus;
+		return tipus.name();
 	}
 	
 	public void setTipus(String tipus) {
 		
-		boolean encontrado = false;
-		
 		for(tipoMoto t : tipoMoto.values()) {
+			
 			if(t.name().equalsIgnoreCase(tipus)) {
+				
 				this.tipus = t;
-	            encontrado = true;
 	            break;
 			}
 		}
 	}
 	
-	@Override
-	public boolean equals(Object obj) {
-
-		if (this == obj) return true;
-
-		if (obj == null) return false;
-
-		if (getClass() != obj.getClass()) return false;
-
-		Moto other = (Moto) obj;
-
-		return Objects.equals(getClass().getSimpleName(), other.getClass().getSimpleName()) && Objects.equals(matricula, other.matricula) && Objects.equals(marca, other.marca) && Objects.equals(model, other.model);
-
-
-	}
+	
 	@Override
 	public String toString() {
 		

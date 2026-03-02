@@ -6,11 +6,10 @@ public class Cotxe extends Vehicle {
 	private boolean esAutomatic;
 	
 	
-
-	
 	public Cotxe(String matricula, String marca, String model, String color, int km, int numPuertas, boolean esAutomatic) throws Exception {
 		
 		super(matricula, marca, model, color, km);
+		
 		if(numPuertas <= 0) throw new Exception("Error en las puertas");
 		this.numPuertas = numPuertas;
 		this.esAutomatic = esAutomatic;
@@ -22,7 +21,8 @@ public class Cotxe extends Vehicle {
 	}
 	
 	public void setNumPuertas(int numPuertas) {
-		this.numPuertas = numPuertas;
+		
+		if(numPuertas > 0) this.numPuertas = numPuertas;
 	}
 	
 	@Override
@@ -34,21 +34,6 @@ public class Cotxe extends Vehicle {
 		this.esAutomatic = esAutomatic;
 	}
 	
-	@Override
-	public boolean equals(Object obj) {
-
-		if (this == obj) return true;
-
-		if (obj == null) return false;
-
-		if (getClass() != obj.getClass()) return false;
-
-		Cotxe other = (Cotxe) obj;
-
-		return Objects.equals(getClass().getSimpleName(), other.getClass().getSimpleName()) && Objects.equals(matricula, other.matricula) && Objects.equals(marca, other.marca) && Objects.equals(model, other.model);
-
-
-	}
 	
 	@Override
 	public int descuento() {
