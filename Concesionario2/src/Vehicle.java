@@ -19,21 +19,15 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 		this.km = km;
 	}
 	
-	public int descuentoReglaCoche() {
-
-	    if (this.isEsAutomatic()) return 0;
+	public int descuento() {
 
 	    int des = this.getKm()/10000;
-
 
 	    if (des > 10) return 10;
 
 	    return des;
 	}
-	
-	public boolean isEsAutomatic() {
-		return false;
-	}
+
 	
 	public String getMarca() {
 		return marca;
@@ -121,5 +115,5 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 	    return this.matricula.compareTo(p.getMatricula());
 	}
 
-	public abstract int descuento();
+	
 }

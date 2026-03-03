@@ -25,7 +25,6 @@ public class Cotxe extends Vehicle {
 		if(numPuertas > 0) this.numPuertas = numPuertas;
 	}
 	
-	@Override
 	public boolean isEsAutomatic() {
 		return esAutomatic;
 	}
@@ -37,7 +36,8 @@ public class Cotxe extends Vehicle {
 	
 	@Override
 	public int descuento() {
-		return this.descuentoReglaCoche();
+		if(esAutomatic) return 0;
+		return super.descuento();
 	}
 	
 	@Override
@@ -47,3 +47,4 @@ public class Cotxe extends Vehicle {
 	}
 	
 }
+
