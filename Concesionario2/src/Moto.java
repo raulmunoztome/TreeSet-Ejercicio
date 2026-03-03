@@ -70,7 +70,7 @@ public class Moto extends Vehicle{
 		
 		if(cilindrada > 125) {
 			
-			return this.descuento();
+			return super.descuento();
 		}
 		
 		if((km/5000)*2 > 20) return 20;
