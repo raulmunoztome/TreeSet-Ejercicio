@@ -6,10 +6,8 @@ import java.util.Objects;
 public class Moto extends Vehicle{
 
 	private int cilindrada;
-	private tipoMoto tipus;
-	private enum tipoMoto {
-	    URBANA, DEPORTIVA, SCOOTER, TRAIL, CUSTOM
-	}
+	private TipoMoto.tipoMoto tipus;
+
 	
 	public Moto(String matricula, String marca, String model, String color, int km, int cilindrada, String tipus) throws Exception {	
 		super(matricula, marca, model, color, km);
@@ -17,17 +15,9 @@ public class Moto extends Vehicle{
 		if(cilindrada <= 0) throw new Exception("Cilindrada no válida");
 		this.cilindrada = cilindrada;
 		
-		boolean encontrado = false;
-		for(tipoMoto t : tipoMoto.values()) {
-			
-			if(t.name().equalsIgnoreCase(tipus)) {
-				
-				this.tipus = t;
-	            encontrado = true;
-	            break;
-			}
-		}
-		if(!encontrado) throw new Exception("tipo de moto inválido");
+		if(!TipoMoto.infoTipos(tipus)) throw new Exception("tipo no válido");
+		this.tipus = TipoMoto.addTipo(tipus); 
+		
 	}
 	
 	public int getCilindrada() {
@@ -47,14 +37,7 @@ public class Moto extends Vehicle{
 	
 	public void setTipus(String tipus) {
 		
-		for(tipoMoto t : tipoMoto.values()) {
-			
-			if(t.name().equalsIgnoreCase(tipus)) {
-				
-				this.tipus = t;
-	            break;
-			}
-		}
+		if(!TipoMoto.infoTipos(tipus))this.tipus = TipoMoto.addTipo(tipus);
 	}
 	
 	

@@ -10,11 +10,11 @@ public class Principal{
 		
 		try {
 			
-			Cotxe c1 = new Cotxe("AR36634ET","Tesla","R1","Verde",24000,5,true);
-			Cotxe c2 = new Cotxe("EP54782RT","Audi","A7","Blanco",20400,5,false);
+			Cotxe c1 = new Cotxe("AR36634ET","Tesla","R1","Verde",25000,5,true);
+			Cotxe c2 = new Cotxe("EP54782RT","Audi","A7","Blanco",20400,3,false);
 			Cotxe c3 = new Cotxe("TT54653KK","Nissan","Mayestic","Blanco",9999,5,false);
 			Moto m1 = new Moto("AP43256TG","Toyota","Avispa","Negro",17000,90,"urbana");
-			Moto m2 = new Moto("TY35634KL","Peugeot","motomami","Azul",15000,180,"deportiva");
+			Moto m2 = new Moto("TY35634KL","Peugeot","motomami","Azul",15500,180,"deportiva");
 			
 			List<Vehicle> lista = new ArrayList<Vehicle>();
 			lista.add(c1);
@@ -61,5 +61,6 @@ public class Principal{
 		
 
 	}
+
 
 }
